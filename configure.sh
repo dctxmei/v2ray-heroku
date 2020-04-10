@@ -12,31 +12,29 @@ rm -r /tmp/v2ray/
 
 # V2Ray new configuration
 install -d /usr/local/etc/v2ray/
-cat << EOF > /usr/local/etc/v2ray/config.json
-{
-    "inbounds": [
-        {
-            "port": "env:PORT",
-            "protocol": "vmess",
-            "settings": {
-                "clients": [
-                    {
-                        "id": "$UUID"
-                    }
-                ]
-            },
-            "streamSettings": {
-                "network": "ws"
-            }
-        }
-    ],
-    "outbounds": [
-        {
-            "protocol": "freedom"
-        }
-    ]
-}
-EOF
+echo '{' > /usr/local/etc/v2ray/config.json
+echo '    "inbounds": [' >> /usr/local/etc/v2ray/config.json
+echo '        {' >> /usr/local/etc/v2ray/config.json
+echo '            "port": "env:PORT",' >> /usr/local/etc/v2ray/config.json
+echo '            "protocol": "vmess",' >> /usr/local/etc/v2ray/config.json
+echo '            "settings": {' >> /usr/local/etc/v2ray/config.json
+echo '                "clients": [' >> /usr/local/etc/v2ray/config.json
+echo '                    {' >> /usr/local/etc/v2ray/config.json
+echo '                        "id": "$UUID"' >> /usr/local/etc/v2ray/config.json
+echo '                    }' >> /usr/local/etc/v2ray/config.json
+echo '                ]' >> /usr/local/etc/v2ray/config.json
+echo '            },' >> /usr/local/etc/v2ray/config.json
+echo '            "streamSettings": {' >> /usr/local/etc/v2ray/config.json
+echo '                "network": "ws"' >> /usr/local/etc/v2ray/config.json
+echo '            }' >> /usr/local/etc/v2ray/config.json
+echo '        }' >> /usr/local/etc/v2ray/config.json
+echo '    ],' >> /usr/local/etc/v2ray/config.json
+echo '    "outbounds": [' >> /usr/local/etc/v2ray/config.json
+echo '        {' >> /usr/local/etc/v2ray/config.json
+echo '            "protocol": "freedom"' >> /usr/local/etc/v2ray/config.json
+echo '        }' >> /usr/local/etc/v2ray/config.json
+echo '    ]' >> /usr/local/etc/v2ray/config.json
+echo '}' >> /usr/local/etc/v2ray/config.json
 
 # Run V2Ray
 /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
