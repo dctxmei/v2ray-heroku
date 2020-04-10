@@ -12,29 +12,29 @@ rm -r /tmp/v2ray/
 
 # V2Ray new configuration
 install -d /usr/local/etc/v2ray/
-echo '{' > /usr/local/etc/v2ray/config.json
-echo '    "inbounds": [' >> /usr/local/etc/v2ray/config.json
-echo '        {' >> /usr/local/etc/v2ray/config.json
-echo '            "port": "env:PORT",' >> /usr/local/etc/v2ray/config.json
-echo '            "protocol": "vmess",' >> /usr/local/etc/v2ray/config.json
-echo '            "settings": {' >> /usr/local/etc/v2ray/config.json
-echo '                "clients": [' >> /usr/local/etc/v2ray/config.json
-echo '                    {' >> /usr/local/etc/v2ray/config.json
-echo '                        "id": "$UUID"' >> /usr/local/etc/v2ray/config.json
-echo '                    }' >> /usr/local/etc/v2ray/config.json
-echo '                ]' >> /usr/local/etc/v2ray/config.json
-echo '            },' >> /usr/local/etc/v2ray/config.json
-echo '            "streamSettings": {' >> /usr/local/etc/v2ray/config.json
-echo '                "network": "ws"' >> /usr/local/etc/v2ray/config.json
-echo '            }' >> /usr/local/etc/v2ray/config.json
-echo '        }' >> /usr/local/etc/v2ray/config.json
-echo '    ],' >> /usr/local/etc/v2ray/config.json
-echo '    "outbounds": [' >> /usr/local/etc/v2ray/config.json
-echo '        {' >> /usr/local/etc/v2ray/config.json
-echo '            "protocol": "freedom"' >> /usr/local/etc/v2ray/config.json
-echo '        }' >> /usr/local/etc/v2ray/config.json
-echo '    ]' >> /usr/local/etc/v2ray/config.json
-echo '}' >> /usr/local/etc/v2ray/config.json
+echo '{' | tee /usr/local/etc/v2ray/config.json
+echo '    "inbounds": [' | tee -a /usr/local/etc/v2ray/config.json
+echo '        {' | tee -a /usr/local/etc/v2ray/config.json
+echo '            "port": "env:PORT",' | tee -a /usr/local/etc/v2ray/config.json
+echo '            "protocol": "vmess",' | tee -a /usr/local/etc/v2ray/config.json
+echo '            "settings": {' | tee -a /usr/local/etc/v2ray/config.json
+echo '                "clients": [' | tee -a /usr/local/etc/v2ray/config.json
+echo '                    {' | tee -a /usr/local/etc/v2ray/config.json
+echo '                        "id": "$UUID"' | tee -a /usr/local/etc/v2ray/config.json
+echo '                    }' | tee -a /usr/local/etc/v2ray/config.json
+echo '                ]' | tee -a /usr/local/etc/v2ray/config.json
+echo '            },' | tee -a /usr/local/etc/v2ray/config.json
+echo '            "streamSettings": {' | tee -a /usr/local/etc/v2ray/config.json
+echo '                "network": "ws"' | tee -a /usr/local/etc/v2ray/config.json
+echo '            }' | tee -a /usr/local/etc/v2ray/config.json
+echo '        }' | tee -a /usr/local/etc/v2ray/config.json
+echo '    ],' | tee -a /usr/local/etc/v2ray/config.json
+echo '    "outbounds": [' | tee -a /usr/local/etc/v2ray/config.json
+echo '        {' | tee -a /usr/local/etc/v2ray/config.json
+echo '            "protocol": "freedom"' | tee -a /usr/local/etc/v2ray/config.json
+echo '        }' | tee -a /usr/local/etc/v2ray/config.json
+echo '    ]' | tee -a /usr/local/etc/v2ray/config.json
+echo '}' | tee -a /usr/local/etc/v2ray/config.json
 
 # Run V2Ray
 /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
