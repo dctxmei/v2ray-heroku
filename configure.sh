@@ -15,7 +15,7 @@ install -d /usr/local/etc/v2ray/
 echo '{' > /usr/local/etc/v2ray/config.json
 echo '    "inbounds": [' >> /usr/local/etc/v2ray/config.json
 echo '        {' >> /usr/local/etc/v2ray/config.json
-echo '            "port": env:PORT,' >> /usr/local/etc/v2ray/config.json
+echo '            "port": "env:PORT",' >> /usr/local/etc/v2ray/config.json
 echo '            "protocol": "vmess",' >> /usr/local/etc/v2ray/config.json
 echo '            "settings": {' >> /usr/local/etc/v2ray/config.json
 echo '                "clients": [' >> /usr/local/etc/v2ray/config.json
